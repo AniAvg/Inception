@@ -1,7 +1,6 @@
-version: '3'
-
 services:
   nginx:
+    image: nginx
     build:
       context: .
       dockerfile: requirements/nginx/Dockerfile
@@ -19,6 +18,7 @@ services:
     restart: always
 
   mariadb:
+    image: mariadb
     build:
       context: .
       dockerfile: requirements/mariadb/Dockerfile
@@ -28,8 +28,6 @@ services:
         DB_PASS: ${DB_PASS}
         DB_ROOT: ${DB_ROOT}
     container_name: mariadb
-    ports:
-      - "3306:3306"
     networks:
       - inception
     volumes:
@@ -38,6 +36,7 @@ services:
 
 
   wordpress:
+    image: wordpress
     build:
       context: .
       dockerfile: requirements/wordpress/Dockerfile
