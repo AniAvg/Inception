@@ -1,4 +1,4 @@
-FROM alpine:3.24
+FROM alpine:3.23
 
 ARG PHP_VERSION=83 \
     DB_NAME \
